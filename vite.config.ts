@@ -8,6 +8,10 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   base: '/telegram-mini-app-test',
   plugins: [react(), tsconfigPaths()],
+  publicDir: './public',
+  server: {
+    host: true,
+  },
   // server: {
   //   port: 443,
   //   host: '0.0.0.0',
