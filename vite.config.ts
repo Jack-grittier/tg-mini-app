@@ -12,6 +12,7 @@ export default defineConfig({
   server: {
     host: true,
   },
+
   // server: {
   //   port: 443,
   //   host: '0.0.0.0',
