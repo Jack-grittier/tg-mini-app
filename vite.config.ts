@@ -8,18 +8,18 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig({
   base: '/telegram-mini-app-test',
   plugins: [react(), tsconfigPaths()],
-  server: {
-    port: 443,
-    host: '0.0.0.0',
-    hmr: {
-      host: 'tg-mini-app.local',
-      port: 443,
-    },
-    https: {
-      key: fs.readFileSync('./.cert/localhost-key.pem'),
-      cert: fs.readFileSync('./.cert/localhost.pem'),
-    },
-  },
+  // server: {
+  //   port: 443,
+  //   host: '0.0.0.0',
+  //   hmr: {
+  //     host: 'tg-mini-app.local',
+  //     port: 443,
+  //   },
+  //   https: {
+  //     key: fs.readFileSync('./.cert/localhost-key.pem'),
+  //     cert: fs.readFileSync('./.cert/localhost.pem'),
+  //   },
+  // },
   resolve: {
     alias: {
       '@app': resolve(__dirname, './src/app'),
