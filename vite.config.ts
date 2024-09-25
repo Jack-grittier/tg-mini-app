@@ -6,7 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/telegram-mini-app-test',
+  base: '/telegram-mini-app-test/',
   plugins: [react(), tsconfigPaths()],
   publicDir: './public',
   server: {
