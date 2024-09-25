@@ -1,9 +1,4 @@
-import {
-  asyncThunkCreator,
-  buildCreateSlice,
-  createAsyncThunk,
-  createSlice,
-} from '@reduxjs/toolkit'
+import { asyncThunkCreator, buildCreateSlice } from '@reduxjs/toolkit'
 import { ISearchState } from '@features/SearchManager/model/types.ts'
 import { getManagerById } from '@shared/api/entry-manager'
 
@@ -26,9 +21,9 @@ const searchSlice = createSliceWithThunks({
         }
       },
       {
-        pending: (state, action) => {},
-        fulfilled: (state, action) => {},
-        rejected: (state, action) => {},
+        pending: () => {},
+        fulfilled: () => {},
+        rejected: () => {},
       }
     ),
   }),
