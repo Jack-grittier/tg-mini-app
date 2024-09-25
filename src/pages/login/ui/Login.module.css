@@ -1,0 +1,8 @@
+.wrapper-title {
+    text-align: center;
+    width: 100%;
+}
+
+.search-box {
+    display: flex;
+}

@@ -1,0 +1,10 @@
+.searchContainer {
+    display: flex;
+}
+
+.searchBox {
+    width: 100%;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+}
