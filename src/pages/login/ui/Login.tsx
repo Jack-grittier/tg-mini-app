@@ -1,8 +1,9 @@
-import type { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 import { Title } from '@telegram-apps/telegram-ui'
 
 import styles from './Login.module.css'
 import { Search } from '@features/SearchManager'
+import { Result } from '@features/SearchManager/ui/result/result.tsx'
 
 interface LoginPropsType {}
 
@@ -15,6 +16,7 @@ export const Login = ({}: PropsWithChildren<LoginPropsType>) => {
         </Title>
       </div>
       <Search />
+      <Result />
     </main>
   )
 }

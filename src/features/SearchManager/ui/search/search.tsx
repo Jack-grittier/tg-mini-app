@@ -9,14 +9,19 @@ interface SearchPropsType {}
 
 export const Search = ({}: PropsWithChildren<SearchPropsType>) => {
   const dispatch = useAppDispatch()
-  const asd = () => {
+  const searchAction = () => {
     dispatch(searchManager({ managerId: '288593' }))
   }
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchBox}>
-        <Input header="Input" placeholder={'Enter your team ID'} />
-        <Button mode={'filled'} size="l" onClick={asd}>
+        <Input
+          header="Input"
+          placeholder={'Enter your team ID'}
+          value={'288593'}
+          onChange={() => {}}
+        />
+        <Button mode={'filled'} size="l" onClick={searchAction}>
           Search
         </Button>
       </div>

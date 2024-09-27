@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react'
 import { Provider } from 'react-redux'
-import store from '@app/store.ts'
+import { store } from '@app/store.ts'
 import { SDKProvider, useLaunchParams } from '@telegram-apps/sdk-react'
 
 export const Providers = ({ children }: PropsWithChildren) => {

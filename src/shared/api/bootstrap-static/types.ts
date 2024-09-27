@@ -100,7 +100,7 @@ interface Team {
   pulse_id: number
 }
 
-interface Player {
+export interface Player {
   chance_of_playing_next_round: number | null
   chance_of_playing_this_round: number | null
   code: number
