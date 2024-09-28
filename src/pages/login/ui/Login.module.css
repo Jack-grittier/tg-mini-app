@@ -1,8 +1,15 @@
 .wrapper-title {
     text-align: center;
     width: 100%;
+    margin-bottom: 32px;
 }
 
 .search-box {
     display: flex;
+}
+
+.button-hint {
+    text-align: center;
+    width: 100%;
+    margin-top: 24px;
 }

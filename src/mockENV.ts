@@ -30,12 +30,12 @@ if (import.meta.env.DEV) {
       [
         'user',
         JSON.stringify({
-          id: 193042172,
-          first_name: 'Serg',
-          last_name: 'Dia',
-          username: 'SerjDia',
+          id: 330127905,
+          first_name: 'Danila',
+          last_name: 'Shkurko',
+          username: 'danilashk',
           language_code: 'ru',
-          is_premium: false,
+          is_premium: true,
           allows_write_to_pm: false,
         }),
       ],

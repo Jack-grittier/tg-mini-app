@@ -2,12 +2,13 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: var(--tg-theme-secondary-bg-color, white);
+  background: var(--tg-theme-secondary-bg-color);
 }
 
 .App {
   position: relative;
-  padding: 0 14px;
+  /*60px - это высота нижнего бара, возможно придется считать динамически*/
+  padding: 16px 12px 60px 12px;
   word-break: break-all;
 }
 

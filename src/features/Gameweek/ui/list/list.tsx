@@ -59,7 +59,7 @@ export const List = () => {
   }
 
   return (
-    <div className={styles.inner}>
+    <div className={styles.container}>
       <div className={styles.box}>
         <ActionChangeEvent
           mode={Mode.left}

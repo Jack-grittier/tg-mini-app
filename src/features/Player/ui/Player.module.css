@@ -1,0 +1,25 @@
+.container {
+    width: fit-content;
+}
+
+.inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #494242;
+}
+
+.name {
+    width: 100%;
+    background: white;
+    color: black;
+    text-align: center;
+}
+
+.points {
+    width: 100%;
+    background: #E0E0E0;
+    color: black;
+    text-align: center;
+}
