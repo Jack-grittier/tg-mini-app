@@ -12,11 +12,25 @@ const tabs = [
     id: 0,
     Icon: Icon28Devices,
     text: 'Team',
+    href: '/main',
   },
   {
     id: 1,
     Icon: Icon28Chat,
+    text: 'Leagues',
+    href: '/leagues',
+  },
+  {
+    id: 2,
+    Icon: Icon28Chat,
+    text: 'Fixtures',
+    href: '/fixtures',
+  },
+  {
+    id: 3,
+    Icon: Icon28Chat,
     text: 'Settings',
+    href: '/settings',
   },
 ]
 

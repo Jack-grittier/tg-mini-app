@@ -1,5 +1,4 @@
 import './App.css'
-import { AppRouter } from '@app/routers/AppRouter.tsx'
 import {
   bindMiniAppCSSVars,
   bindThemeParamsCSSVars,
@@ -13,6 +12,7 @@ import { AppRoot } from '@telegram-apps/telegram-ui'
 import { useEffect } from 'react'
 import { useAppDispatch } from '@app/store'
 import { getBootstrapStaticData } from '@entities/bootstrap-static'
+import { AppRouter } from './routers/AppRouter'
 
 export const App = () => {
   const miniApp = useMiniApp()

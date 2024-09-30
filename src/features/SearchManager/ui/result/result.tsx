@@ -7,5 +7,6 @@ interface ResultPropsType {}
 export const Result = ({}: PropsWithChildren<ResultPropsType>) => {
   const user = useAppSelector((state) => state.search?.manager)
   if (!user) return null
+  console.log('REDIRECT TO MAIN')
   return <Navigate to="/main" />
 }

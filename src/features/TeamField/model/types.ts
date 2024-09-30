@@ -1,8 +1,8 @@
 import { Player } from '@shared/api/bootstrap-static/types'
-import { LiveStats } from '@shared/api/live/types'
+import { Explain, LiveStats } from '@shared/api/live/types'
 
 export type TeamField = {
-  stats: LiveStats
+  stats: LiveStats & { explain: Explain[] }
   player: Player
   element: number
   position: number

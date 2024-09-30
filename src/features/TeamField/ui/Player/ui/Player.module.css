@@ -10,6 +10,13 @@
     background: #494242;
 }
 
+.kit {
+    width: 50px;
+    aspect-ratio: 1;
+    background: #494242;
+    border-radius: 50%;
+}
+
 .name {
     width: 100%;
     background: white;

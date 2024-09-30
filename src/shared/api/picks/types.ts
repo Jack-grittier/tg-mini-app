@@ -13,17 +13,18 @@ interface AutomaticSub {
 }
 
 interface EntryHistory {
-  event: number
-  points: number
-  total_points: number
-  rank: number
-  rank_sort: number
-  overall_rank: number
   bank: number
-  value: number
+  event: number
   event_transfers: number
   event_transfers_cost: number
+  overall_rank: number
+  percentile_rank: number
+  points: number
   points_on_bench: number
+  rank: number
+  rank_sort: number
+  total_points: number
+  value: number
 }
 
 interface Pick {
