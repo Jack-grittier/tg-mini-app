@@ -52,7 +52,7 @@ jobs:
         run: |
           CHAT_IDS=${{ secrets.TELEGRAM_CHAT_IDS }}
           TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
-          MESSAGE="Деплой прошел успешно! Вот ссылка на приложение: [ссылка]"
+          MESSAGE="Деплой прошел успешно! Ссылка на бота: ${{ secrets.TELEGRAM_BOT_LINK }}"
           
           for CHAT_ID in $(echo $CHAT_IDS | jq -r '.[]'); do
             curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
