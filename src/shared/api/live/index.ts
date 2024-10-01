@@ -1,3 +1,3 @@
-export {} from './live'
+export { getLive } from './live'
 
-export { type Live } from './types'
+export { type Live, type LiveElement } from './types'

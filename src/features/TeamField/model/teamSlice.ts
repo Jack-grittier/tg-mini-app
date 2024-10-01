@@ -4,12 +4,13 @@ import {
   PayloadAction,
 } from '@reduxjs/toolkit'
 import { getCurrentPicks } from '@shared/api/picks'
-import { getLive } from '@shared/api/live/live'
-import { binarySearch } from '@shared/lib/binarySearch/binarySearch'
-import { ITeamState, TeamField } from './types'
-import { Player } from '@shared/api/bootstrap-static/types'
-import { LiveElement } from '@shared/api/live/types'
+import { getLive } from '@shared/api/live'
+import { binarySearch, quickSort } from '@shared/lib'
+import { type ITeamState, TeamField } from './types'
+import { type Player } from '@shared/api/bootstrap-static'
+import { LiveElement } from '@shared/api/live'
 import { initTotalPoints } from '@features/PickTotalPoints'
+import { getFixturesEvent, isFixture } from '@shared/api/fixtures'
 
 const createSliceWithThunks = buildCreateSlice({
   creators: { asyncThunk: asyncThunkCreator },
@@ -27,11 +28,13 @@ const teamSlice = createSliceWithThunks({
         try {
           const respPick = await getCurrentPicks(managerId, eventId)
           const respLife = await getLive(eventId)
+          const respFixtures = await getFixturesEvent(eventId)
 
           dispatch(initTotalPoints(respPick.data.entry_history.points))
 
           const myPicks = respPick.data.picks
           const allStats = respLife.data.elements
+          const fullFixtures = quickSort(respFixtures.data)
 
           const data = myPicks.map((p) => {
             const currentStats = binarySearch<LiveElement>(allStats, p.element)
@@ -39,7 +42,24 @@ const teamSlice = createSliceWithThunks({
 
             const stats =
               currentStats !== null && typeof currentStats === 'object'
-                ? { ...currentStats.stats, explain: currentStats.explain }
+                ? {
+                    ...currentStats.stats,
+                    explain: currentStats.explain.map((ex) => {
+                      const currentFixture = binarySearch(
+                        fullFixtures,
+                        ex.fixture
+                      )
+
+                      const fixture = isFixture(currentFixture)
+                        ? currentFixture
+                        : ex.fixture
+
+                      return {
+                        stats: ex.stats,
+                        fixture,
+                      }
+                    }),
+                  }
                 : {}
 
             return {

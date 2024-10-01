@@ -88,7 +88,7 @@ interface Phase {
   stop_event: number
 }
 
-interface Team {
+export interface Team {
   code: number
   draw: number
   form: null

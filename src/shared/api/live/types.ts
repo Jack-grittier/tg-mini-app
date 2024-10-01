@@ -40,7 +40,7 @@ export interface Explain {
   stats: ExplainStat[]
 }
 
-interface ExplainStat {
+export interface ExplainStat {
   identifier: string
   points: number
   value: number

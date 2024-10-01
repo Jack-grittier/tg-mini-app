@@ -16,6 +16,7 @@ export const Search = ({}: PropsWithChildren<SearchPropsType>) => {
     await dispatch(searchManager({ managerId: '288593' }))
     navigate('/main')
   }
+
   return (
     <div className={styles.searchContainer}>
       <div className={styles.searchBox}>

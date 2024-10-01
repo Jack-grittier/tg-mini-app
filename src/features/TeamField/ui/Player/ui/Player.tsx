@@ -4,20 +4,29 @@ import styles from './Player.module.css'
 import { Modal } from '@telegram-apps/telegram-ui'
 
 import { type TeamFieldType } from '@features/TeamField'
+import { MatchScore } from '../../MatchScore/MatchScore'
 
 interface PlayerProps extends TeamFieldType {}
 
 //https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_3-66.png игроки
 //https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_3_1-66.png вратарь
 
-export const Player: FC<PlayerProps> = ({ player, stats }) => {
+export const Player: FC<PlayerProps> = ({
+  player,
+  stats,
+  is_captain,
+  is_vice_captain,
+}) => {
   return (
     <>
       <Modal
         header={<Modal.Header>Only iOS header</Modal.Header>}
+        snapPoints={[1]}
         trigger={
           <button className={styles['container']}>
             <div className={styles['inner']}>
+              {is_captain && <div>C</div>}
+              {is_vice_captain && <div>V</div>}
               <div className={styles.kit}>
                 {/*<img*/}
                 {/*  src={`https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_3-66.png`}*/}
@@ -33,7 +42,34 @@ export const Player: FC<PlayerProps> = ({ player, stats }) => {
           </button>
         }
       >
-        <div>123</div>
+        <div
+          style={{
+            height: 'var(--tg-viewport-height)',
+          }}
+        >
+          <div>STATS</div>
+          <div>
+            {stats.explain.map((ex, index) => {
+              console.log('ex.fixture', ex.fixture)
+              return (
+                <div key={`explain-${index}`}>
+                  <MatchScore fixture={ex.fixture} />
+                  {ex.stats.map((st) => {
+                    return (
+                      <div key={`explain-${index}-${st.identifier}`}>
+                        <div>{st.identifier}</div>
+                        <span>points: {st.points}</span>
+                        <span>value: {st.value}</span>
+                        <br />
+                        <br />
+                      </div>
+                    )
+                  })}
+                </div>
+              )
+            })}
+          </div>
+        </div>
       </Modal>
     </>
   )
