@@ -8,3 +8,7 @@ const fixturesSlice = createSlice({
   } as IFixtureState,
   reducers: {},
 })
+
+const { reducer } = fixturesSlice
+
+export default reducer
