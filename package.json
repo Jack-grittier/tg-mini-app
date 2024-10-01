@@ -11,7 +11,21 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
-    "test": "vitest"
+    "test": "vitest",
+    "prepare": "husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
