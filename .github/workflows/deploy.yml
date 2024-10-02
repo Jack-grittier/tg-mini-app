@@ -48,14 +48,17 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
 
+      - name: Get last 3 commit messages
+        id: get_commits
+        run: echo "::set-output name=commits::$(git log -3 --pretty=format:'%h - %s')"
+
       - name: Notify via Telegram
         run: |
           CHAT_IDS=${{ secrets.TELEGRAM_CHAT_IDS }}
           TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
-          MESSAGE="Деплой прошел успешно! Ссылка на бота: ${{ secrets.TELEGRAM_BOT_LINK }}"
+          MESSAGE="Деплой прошел успешно! Ссылка на бота: ${{ secrets.TELEGRAM_BOT_LINK }}%0AПоследние коммиты:%0A${{ steps.get_commits.outputs.commits }}"
           
-          for CHAT_ID in $(echo $CHAT_IDS | jq -r '.[]'); do
-            curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
-              -d "chat_id=${CHAT_ID}" \
-              -d "text=${MESSAGE}"
-          done
+          curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
+            -d "chat_id=-1001824987291" \
+            -d "text=${MESSAGE}" \ 
+            -d "message_thread_id=32053"
