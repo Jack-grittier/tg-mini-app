@@ -13,12 +13,19 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node
         uses: actions/setup-node@v4
 
       - name: Install dependencies
         uses: bahmutov/npm-install@v1
+
+      - name: Get last 1 commit messages
+        id: get_commits
+        run: echo "::set-output name=commits::$(git log -1 --pretty=format:'%h - %s')"
+
 
       - name: Build project
         run: npm run build
@@ -48,10 +55,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
 
-      - name: Get last 3 commit messages
-        id: get_commits
-        run: echo "::set-output name=commits::$(git log -3 --pretty=format:'%h - %s')"
-
       - name: Notify via Telegram
         run: |
           CHAT_IDS=${{ secrets.TELEGRAM_CHAT_IDS }}
@@ -59,6 +62,6 @@ jobs:
           MESSAGE="Деплой прошел успешно! Ссылка на бота: ${{ secrets.TELEGRAM_BOT_LINK }}%0AПоследние коммиты:%0A${{ steps.get_commits.outputs.commits }}"
           
           curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
-            -d "chat_id=-1001824987291" \
-            -d "text=${MESSAGE}" \ 
-            -d "message_thread_id=32053"
+            -H "Content-Type: application/json" \
+            -d '{"chat_id": -1001824987291, "message_thread_id": 32053, "text": "'"${MESSAGE}"'" }'
+          
