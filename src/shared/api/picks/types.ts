@@ -1,5 +1,7 @@
+import { ChipListType } from '@shared/config/constants/constants'
+
 export interface Picks {
-  active_chip: string | null
+  active_chip: Nullable<ChipListType>
   automatic_subs: AutomaticSub[]
   entry_history: EntryHistory
   picks: Pick[]

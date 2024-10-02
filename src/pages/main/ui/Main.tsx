@@ -5,6 +5,7 @@ import { TeamField } from '@features/TeamField'
 import { PickTotalPoints } from '@features/PickTotalPoints'
 
 import styles from './Main.module.css'
+import { Chip } from '@features/ActiveChip'
 
 interface MainPropsType {}
 
@@ -15,6 +16,7 @@ export const Main = ({}: PropsWithChildren<MainPropsType>) => {
         <ManagerInfo />
         <PickTotalPoints />
       </div>
+      <Chip />
       <List />
       <TeamField />
     </div>

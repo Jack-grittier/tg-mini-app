@@ -1,6 +1,5 @@
 import type { PropsWithChildren } from 'react'
 import { TeamFieldType } from '@features/TeamField'
-import { useAppSelector } from '@app/store.ts'
 import { Player } from '@features/TeamField/ui/Player/ui/Player.tsx'
 
 interface BenchFieldPropsType {
@@ -10,8 +9,6 @@ interface BenchFieldPropsType {
 export const BenchField = ({
   data,
 }: PropsWithChildren<BenchFieldPropsType>) => {
-  const elementTypes =
-    useAppSelector((state) => state.bootstrapStatic.static?.element_types) ?? []
   return (
     <div
       style={{
@@ -21,11 +18,7 @@ export const BenchField = ({
       }}
     >
       {data.map((pl) => {
-        const plToLine = elementTypes.find(
-          (t) => t.id === pl.player.element_type
-        )
-        console.log('plToLine', plToLine)
-        return <Player key={`player-${pl.element}`} {...pl} />
+        return <Player key={`player-${pl.element}`} {...pl} isBench />
       })}
     </div>
   )

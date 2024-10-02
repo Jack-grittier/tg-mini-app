@@ -13,7 +13,8 @@ export const Search = ({}: PropsWithChildren<SearchPropsType>) => {
   const navigate = useNavigate()
 
   const searchAction = async () => {
-    await dispatch(searchManager({ managerId: '288593' }))
+    // await dispatch(searchManager({ managerId: '288593' }))
+    await dispatch(searchManager({ managerId: '794535' }))
     navigate('/main')
   }
 

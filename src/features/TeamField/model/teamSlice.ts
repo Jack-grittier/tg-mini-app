@@ -11,6 +11,7 @@ import { type Player } from '@shared/api/bootstrap-static'
 import { LiveElement } from '@shared/api/live'
 import { initTotalPoints } from '@features/PickTotalPoints'
 import { getFixturesEvent, isFixture } from '@shared/api/fixtures'
+import { setActiveChip } from '@features/ActiveChip'
 
 const createSliceWithThunks = buildCreateSlice({
   creators: { asyncThunk: asyncThunkCreator },
@@ -31,6 +32,7 @@ const teamSlice = createSliceWithThunks({
           const respFixtures = await getFixturesEvent(eventId)
 
           dispatch(initTotalPoints(respPick.data.entry_history.points))
+          dispatch(setActiveChip(respPick.data.active_chip))
 
           const myPicks = respPick.data.picks
           const allStats = respLife.data.elements
