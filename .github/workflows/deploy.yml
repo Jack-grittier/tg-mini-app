@@ -62,7 +62,7 @@ jobs:
           
           curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
             -H "Content-Type: application/json" \
-            -d '{"chat_id": -1001824987291, "message_thread_id": 32053, "text": "text": "*Деплой прошел успешно 🎉*
+            -d '{"chat_id": -1001824987291, "message_thread_id": 32053, "text": "*Деплой прошел успешно 🎉*
           Ссылка на бота: 
           '"[link app FPL](https://t.me/dante_mini_app_test_bot/deploy_dante)"'
           *Последний коммит:
