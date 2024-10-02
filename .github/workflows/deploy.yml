@@ -26,7 +26,6 @@ jobs:
         id: get_commits
         run: echo "::set-output name=commits::$(git log -1 --pretty=format:'%h - %s')"
 
-
       - name: Build project
         run: npm run build
 
@@ -59,9 +58,9 @@ jobs:
         run: |
           CHAT_IDS=${{ secrets.TELEGRAM_CHAT_IDS }}
           TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
-          MESSAGE="Деплой прошел успешно! Ссылка на бота: ${{ secrets.TELEGRAM_BOT_LINK }}%0AПоследние коммиты:%0A${{ steps.get_commits.outputs.commits }}"
+          MESSAGE="Деплой прошел успешно! 🎉<br/>Ссылка на бота: <a href=\"${{ secrets.TELEGRAM_BOT_LINK }}\">${{ secrets.TELEGRAM_BOT_LINK }}</a><br/><br/><b>Последние коммиты:</b><br/>${{ github.event.head_commit.message  }}"
           
           curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
             -H "Content-Type: application/json" \
-            -d '{"chat_id": -1001824987291, "message_thread_id": 32053, "text": "'"${MESSAGE}"'" }'
+            -d '{"chat_id": -1001824987291, "message_thread_id": 32053, "text": "'"${MESSAGE}"'", "parse_mode": "HTML" }'
           
