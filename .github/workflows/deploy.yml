@@ -58,9 +58,14 @@ jobs:
         run: |
           CHAT_IDS=${{ secrets.TELEGRAM_CHAT_IDS }}
           TOKEN=${{ secrets.TELEGRAM_BOT_TOKEN }}
-          MESSAGE="Деплой прошел успешно! 🎉<br/>Ссылка на бота: <a href="${{ secrets.TELEGRAM_BOT_LINK }}">${{ secrets.TELEGRAM_BOT_LINK }}</a><br/><br/><b>Последние коммиты:</b><br/>${{ github.event.head_commit.message  }}"
+          MESSAGE=""
           
           curl -X POST "https://api.telegram.org/bot${TOKEN}/sendMessage" \
             -H "Content-Type: application/json" \
-            -d '{"chat_id": -1001824987291, "message_thread_id": 32053, "text": "'"${MESSAGE}"'", "parse_mode": "HTML" }'
-          
+            -d '{"chat_id": -1001824987291, "message_thread_id": 32053, "text": "text": "*Деплой прошел успешно 🎉*
+          Ссылка на бота: 
+          '"[link app FPL](https://t.me/dante_mini_app_test_bot/deploy_dante)"'
+          *Последний коммит:
+          *||Будет в будущем||"
+          , "parse_mode": "HTML" }'
+
