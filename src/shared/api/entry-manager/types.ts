@@ -25,14 +25,14 @@ export interface Entry {
   years_active: number
 }
 
-interface Leagues {
+export interface Leagues {
   classic: ClassicLeague[]
   cup: Cup | null
   cup_matches: CupMatch[]
   h2h: H2HLeague[]
 }
 
-interface ClassicLeague {
+export interface ClassicLeague {
   active_phases: ActivePhase[]
   admin_entry: null
   closed: boolean

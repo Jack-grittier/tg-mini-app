@@ -1,0 +1,8 @@
+.item {
+    border: 1px solid #681A7D;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 4px;
+    border-radius: 4px;
+}

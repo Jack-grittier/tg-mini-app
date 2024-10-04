@@ -1,3 +1,3 @@
 export { getManagerById } from './entry-manager'
 
-export { type Entry } from './types'
+export { type Entry, type ClassicLeague } from './types'

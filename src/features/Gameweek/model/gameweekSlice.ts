@@ -5,12 +5,14 @@ const gameweekSlice = createSlice({
   name: 'gameweek',
   initialState: {
     activeEvent: -1,
+    currentEvent: -1,
     error: '',
     loading: false,
   } as IGameWeekState,
   reducers: {
     initActiveEvent: (state, action: PayloadAction<number>) => {
       state.activeEvent = action.payload
+      state.currentEvent = action.payload
     },
     setActiveEvent: (state, action: PayloadAction<number>) => {
       state.activeEvent = action.payload

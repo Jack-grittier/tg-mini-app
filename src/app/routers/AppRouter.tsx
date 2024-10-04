@@ -6,6 +6,8 @@ import { useIntegration } from '@telegram-apps/react-router-integration'
 import { Login } from '@pages/login'
 import { Main } from '@pages/main'
 import { Settings } from '@pages/settings'
+import { Leagues } from '@pages/leagues'
+import { League } from '@pages/league'
 
 import { TabBar } from '@widgets/Tabbar/ui/Tabbar'
 
@@ -27,6 +29,8 @@ export const AppRouter = ({}: PropsWithChildren<AppRouterPropsType>) => {
         <Route element={<TabBar />}>
           <Route path={'/main'} element={<Main />} />
           <Route path={'/settings'} element={<Settings />} />
+          <Route path={'/leagues'} element={<Leagues />} />
+          <Route path={'/leagues/:id'} element={<League />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

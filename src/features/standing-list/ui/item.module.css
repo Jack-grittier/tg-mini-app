@@ -1,0 +1,43 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    border: 1px solid #681A7D;
+    border-radius: 4px;
+    padding: 6px;
+}
+.inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.innerWrapper {
+    display: flex;
+    gap: 12px;
+}
+
+.rankBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.name-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.points {
+    display: flex;
+    gap: 24px;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-info span {
+    display: block;
+}

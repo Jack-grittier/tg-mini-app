@@ -1,9 +1,11 @@
-import searchReducer from '@features/SearchManager/model/searchSlice'
-import gameweekReducer from '@features/Gameweek/model/gameweekSlice'
-import bootstrapReducer from '@entities/bootstrap-static/model/staticSlice'
+import { searchReducer } from '@features/SearchManager'
+import { gameweekReducer } from '@features/Gameweek'
+import { bootstrapReducer } from '@entities/bootstrap-static'
 import { pickTotalPointsReducer } from '@features/PickTotalPoints'
-import teamReducer from '@features/TeamField/model/teamSlice'
-import chipReducer from '@features/ActiveChip/model/active-chip.slice'
+import { teamReducer } from '@features/TeamField'
+import { chipReducer } from '@features/ActiveChip'
+import { commonReducer } from '@features/team'
+import { standingsDataReducer, standingsReducer } from '@entities/standings'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -14,6 +16,9 @@ const rootReducer = combineReducers({
   team: teamReducer,
   pickTotalPoints: pickTotalPointsReducer,
   chip: chipReducer,
+  standings: standingsReducer,
+  standingsData: standingsDataReducer,
+  common: commonReducer,
 })
 
 export const store = configureStore({

@@ -1,24 +1,10 @@
 import type { PropsWithChildren } from 'react'
-import { List } from '@features/Gameweek'
-import { ManagerInfo } from '@features/ManagerInfo'
-import { TeamField } from '@features/TeamField'
-import { PickTotalPoints } from '@features/PickTotalPoints'
-
-import styles from './Main.module.css'
-import { Chip } from '@features/ActiveChip'
+import { SenderTeam } from '@features/team/index.ts'
+import { useAppSelector } from '@app/store.ts'
 
 interface MainPropsType {}
 
 export const Main = ({}: PropsWithChildren<MainPropsType>) => {
-  return (
-    <div>
-      <div className={styles['wrapper-top-box']}>
-        <ManagerInfo />
-        <PickTotalPoints />
-      </div>
-      <Chip />
-      <List />
-      <TeamField />
-    </div>
-  )
+  const managerId = useAppSelector((state) => state.common.primary.managerId)
+  return <SenderTeam isPrimary managerId={managerId} />
 }

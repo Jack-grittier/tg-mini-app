@@ -1,0 +1,42 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { ITeamState } from './types'
+
+const teamSlice = createSlice({
+  name: 'team',
+  initialState: {
+    currentEvent: -1,
+    primary: {
+      managerId: 288593, // 794535
+      eventId: -1,
+      activeEvent: -1,
+    },
+    secondary: {
+      managerId: -1,
+      eventId: -1,
+      activeEvent: -1,
+    },
+  } as ITeamState,
+  reducers: {
+    initCommonActiveEvent: (state, action: PayloadAction<number>) => {
+      state.currentEvent = action.payload
+      state.primary.activeEvent = action.payload
+      state.secondary.activeEvent = action.payload
+    },
+    setCommonActiveEvent: (
+      state,
+      action: PayloadAction<{
+        field: 'primary' | 'secondary'
+        activeEvent: number
+      }>
+    ) => {
+      const { field, activeEvent } = action.payload
+      state[field].activeEvent = activeEvent
+    },
+  },
+})
+
+const { reducer } = teamSlice
+
+export const { initCommonActiveEvent, setCommonActiveEvent } = teamSlice.actions
+
+export default reducer

@@ -67,5 +67,5 @@ jobs:
           [link app FPL](https://t.me/dante_mini_app_test_bot/deploy_dante)
           *Последний коммит:*
           ||Будет в будущем||"
-          , "parse_mode": "HTML" }'
+          , "parse_mode": "MarkdownV2" }'
 

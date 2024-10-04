@@ -4,7 +4,8 @@ import {
   BootstrapStatic,
   getBootstrapStatic,
 } from '@shared/api/bootstrap-static'
-import { initActiveEvent } from '@features/Gameweek'
+// import { initActiveEvent } from '@features/Gameweek'
+import { initCommonActiveEvent } from '@features/team'
 
 const createSliceWithThunks = buildCreateSlice({
   creators: { asyncThunk: asyncThunkCreator },
@@ -26,7 +27,7 @@ const staticSlice = createSliceWithThunks({
           const events = resp.events
           const activeEventIndex = events.findIndex((e) => e.is_current)
           if (activeEventIndex > -1) {
-            dispatch(initActiveEvent(activeEventIndex))
+            dispatch(initCommonActiveEvent(activeEventIndex))
           }
           return resp
         } catch (e) {

@@ -1,0 +1,17 @@
+.common {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5px;
+    height: 100%;
+}
+
+.up {
+    background-color: #77e29d;
+}
+.down {
+    background-color: #fda2a3;
+}
+.dash {
+    background-color: #544e57;
+}

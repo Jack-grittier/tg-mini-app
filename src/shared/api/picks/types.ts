@@ -29,7 +29,7 @@ interface EntryHistory {
   value: number
 }
 
-interface Pick {
+export interface Pick {
   element: number
   position: number
   multiplier: number

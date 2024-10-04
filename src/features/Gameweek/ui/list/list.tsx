@@ -1,15 +1,24 @@
+import { useEffect, useMemo } from 'react'
+import { Title } from '@telegram-apps/telegram-ui'
+
 import { useAppDispatch, useAppSelector } from '@app/store'
 import { Icon } from '@shared/ui/Icon'
-import { useEffect, useMemo } from 'react'
 import { ActionChangeEvent, Mode } from './ActionChangeEvent/ActionChangeEvent'
-import { setActiveEvent } from '@features/Gameweek'
+
+import { getPicks } from '@features/TeamField'
+import { setCommonActiveEvent } from '@features/team'
 
 import styles from './List.module.css'
-import { Title } from '@telegram-apps/telegram-ui'
-import { getPicks } from '@features/TeamField/index.ts'
 
-export const List = () => {
-  const activeEventIndex = useAppSelector((state) => state.gameweek.activeEvent)
+type PropsType = {
+  isPrimary: boolean
+}
+
+export const List = ({ isPrimary }: PropsType) => {
+  // const activeEventIndex = useAppSelector((state) => state.gameweek.activeEvent)
+  const activeEventIndex = useAppSelector(
+    (state) => state.common[isPrimary ? 'primary' : 'secondary'].activeEvent
+  )
   const events = useAppSelector((state) => state.bootstrapStatic.static?.events)
 
   const dispatch = useAppDispatch()
@@ -37,14 +46,24 @@ export const List = () => {
     if ((events?.length ?? 0) - 1 === activeEventIndex) {
       return
     }
-    dispatch(setActiveEvent(activeEventIndex + 1))
+    dispatch(
+      setCommonActiveEvent({
+        activeEvent: activeEventIndex + 1,
+        field: isPrimary ? 'primary' : 'secondary',
+      })
+    )
   }
 
   const decrementAction = () => {
     if (activeEventIndex === 0) {
       return
     }
-    dispatch(setActiveEvent(activeEventIndex - 1))
+    dispatch(
+      setCommonActiveEvent({
+        activeEvent: activeEventIndex - 1,
+        field: isPrimary ? 'primary' : 'secondary',
+      })
+    )
   }
 
   const changeIndex = (action: 'decrement' | 'increment') => {
@@ -68,7 +87,7 @@ export const List = () => {
           <Icon as={'arrow'} width={20} height={20} />
         </ActionChangeEvent>
         <Title caps level="1" weight="1">
-          {currentEvent?.name}
+          {currentEvent.name}
         </Title>
         <ActionChangeEvent
           mode={Mode.right}

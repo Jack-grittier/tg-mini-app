@@ -1,3 +1,3 @@
 export { getCurrentPicks } from './picks'
 
-export { type Picks } from './types'
+export { type Picks, type Pick } from './types'
