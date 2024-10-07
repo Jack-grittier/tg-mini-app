@@ -5,6 +5,8 @@ import styles from './Login.module.css'
 import { Search } from '@features/SearchManager'
 import { useAppSelector } from '@app/store'
 
+import URLImg from '@shared/config/assets/images/search-id.jpg'
+
 interface LoginPropsType {}
 
 export const Login = ({}: PropsWithChildren<LoginPropsType>) => {
@@ -29,7 +31,25 @@ export const Login = ({}: PropsWithChildren<LoginPropsType>) => {
               </Button>
             }
           >
-            <div>123</div>
+            <div className={styles['modal']}>
+              <ul>
+                <span>
+                  To find the ID of your team, follow the steps below:
+                </span>
+                <p>
+                  Open the web version of the Fantasy app and go to the Points
+                  page. You will see a link of this type in the browser url:{' '}
+                </p>
+                <a href="https://fantasy.premierleague.com/entry/288593/event/7">
+                  https://fantasy.premierleague.com/entry/288593/event/7
+                </a>
+                <p>
+                  Where the numeric value between entry/ and /event will be your
+                  ID. This value can be changed in the Settings tab.
+                </p>
+                <img src={URLImg} alt="URL" width={'100%'} height={'100%'} />
+              </ul>
+            </div>
           </Modal>
         </>
       )}

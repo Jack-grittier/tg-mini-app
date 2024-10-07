@@ -13,3 +13,8 @@
     width: 100%;
     margin-top: 24px;
 }
+
+.modal {
+    padding: 16px;
+    word-break: break-word;
+}
