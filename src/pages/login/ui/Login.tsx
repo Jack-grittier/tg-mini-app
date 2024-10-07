@@ -1,5 +1,6 @@
 import { PropsWithChildren } from 'react'
 import { Button, Modal, Spinner, Title } from '@telegram-apps/telegram-ui'
+import URLImg from '../../../assets/screen.png'
 
 import styles from './Login.module.css'
 import { Search } from '@features/SearchManager'
@@ -45,7 +46,7 @@ export const Login = ({}: PropsWithChildren<LoginPropsType>) => {
                   Where the numeric value between entry/ and /event will be your
                   ID. This value can be changed in the Settings tab.
                 </p>
-                {/*<img src={URLImg} alt="URL" width={'100%'} height={'100%'} />*/}
+                <img src={URLImg} alt="URL" width={'100%'} height={'100%'} />
               </ul>
             </div>
           </Modal>
