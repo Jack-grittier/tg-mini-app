@@ -13,3 +13,10 @@ export {
    */
   fetchScheduler,
 } from './model/fixtures.slice'
+
+export {
+  type FixtureStatsType,
+  type FixtureStatWithPlayerType,
+  type FixtureWithTeam,
+  type IFixtureState,
+} from './model/types'

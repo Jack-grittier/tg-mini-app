@@ -18,7 +18,6 @@ const FORMATS: { [key in Formats]: Intl.DateTimeFormatOptions } = {
   FULL_TIME: {
     hour: 'numeric',
     minute: 'numeric',
-    second: 'numeric',
     hour12: true, // Опция для отображения AM/PM для тех, кто использует 12-часовой формат
   },
 }

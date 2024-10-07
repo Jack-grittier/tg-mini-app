@@ -9,7 +9,7 @@ export interface FixtureType {
   provisional_start_time: boolean
   pulse_id: number
   started: boolean
-  stats: Nullable<FixtureStatType[]>
+  stats: FixtureStatType[]
   team_a: number
   team_a_difficulty: number
   team_a_score: number
@@ -24,7 +24,7 @@ export interface FixtureStatType {
   h: PlayerStatType[]
 }
 
-interface PlayerStatType {
+export interface PlayerStatType {
   value: number
   element: number
 }

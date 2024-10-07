@@ -1,4 +1,4 @@
-import { IconName, list } from '@shared/config/assets/icons/_list.ts'
+import { IconName, list } from '@shared/config/assets/icons/_list'
 
 interface PropsType {
   as: IconName

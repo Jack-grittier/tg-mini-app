@@ -10,13 +10,12 @@ export const FixturesGetterList = ({}: PropsWithChildren<PropsType>) => {
   const dispatch = useAppDispatch()
   useEffect(() => {
     if (eventId > -1) {
-      dispatch(fetchScheduler({ eventId }))
+      dispatch(fetchScheduler({ eventId: eventId + 1 }))
     }
   }, [eventId])
 
   return (
     <>
-      {Intl.DateTimeFormat().resolvedOptions().timeZone}
       <FixturesList />
     </>
   )
