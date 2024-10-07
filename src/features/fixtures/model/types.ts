@@ -1,3 +1,6 @@
+import { FixtureType } from '@shared/api/fixtures'
+
 export interface IFixtureState {
-  data: any[]
+  matchSchedule: Nullable<FixtureType[]>
+  event: number
 }

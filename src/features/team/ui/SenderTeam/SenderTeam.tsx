@@ -22,5 +22,5 @@ export const SenderTeam = ({ managerId, isPrimary = false }: TeamPropsType) => {
     //dispatch(searchManager({ managerId }))
   }, [managerId])
 
-  return <Team isPrimary={isPrimary} />
+  return <Team isPrimary={isPrimary} managerId={managerId} />
 }

@@ -12,6 +12,7 @@ import { LiveElement } from '@shared/api/live'
 import { initTotalPoints } from '@features/PickTotalPoints'
 import { getFixturesEvent, isFixture } from '@shared/api/fixtures'
 import { setActiveChip } from '@features/ActiveChip'
+import { resetAllTeam } from '@features/team/index.ts'
 
 const createSliceWithThunks = buildCreateSlice({
   creators: { asyncThunk: asyncThunkCreator },
@@ -21,10 +22,12 @@ const teamSlice = createSliceWithThunks({
   name: 'team',
   initialState: {} as ITeamState,
   reducers: (create) => ({
-    getPicks: create.asyncThunk<any, { eventId: number }>(
-      async ({ eventId }, { rejectWithValue, getState, dispatch }) => {
+    getPicks: create.asyncThunk<any, { eventId: number; managerId: number }>(
+      async (
+        { eventId, managerId },
+        { rejectWithValue, getState, dispatch }
+      ) => {
         const globalState = getState() as unknown as RootState
-        const managerId = globalState.search.manager?.id ?? -1
         const fullPlayer = globalState.bootstrapStatic.static?.elements ?? []
         try {
           const respPick = await getCurrentPicks(managerId, eventId)
@@ -83,6 +86,11 @@ const teamSlice = createSliceWithThunks({
       }
     ),
   }),
+  extraReducers: (builder) => {
+    builder.addCase(resetAllTeam, () => {
+      return {} as ITeamState
+    })
+  },
 })
 
 const { reducer } = teamSlice

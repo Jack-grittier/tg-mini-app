@@ -13,7 +13,7 @@ interface Event {
   average_entry_score: number
   chip_plays: ChipPlay[]
   cup_leagues_created: boolean
-  deadline_time: string
+  deadline_time: Date
   deadline_time_epoch: number
   deadline_time_game_offset: number
   finished: boolean

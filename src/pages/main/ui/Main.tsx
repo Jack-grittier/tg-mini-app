@@ -1,10 +1,18 @@
 import type { PropsWithChildren } from 'react'
-import { SenderTeam } from '@features/team/index.ts'
-import { useAppSelector } from '@app/store.ts'
+import { SenderTeam } from '@features/team'
+import { useAppSelector } from '@app/store'
 
 interface MainPropsType {}
 
 export const Main = ({}: PropsWithChildren<MainPropsType>) => {
   const managerId = useAppSelector((state) => state.common.primary.managerId)
-  return <SenderTeam isPrimary managerId={managerId} />
+  const secondaryManagerId = useAppSelector(
+    (state) => state.common.secondary.managerId
+  )
+  return (
+    <SenderTeam
+      isPrimary={secondaryManagerId === -1}
+      managerId={secondaryManagerId > -1 ? secondaryManagerId : managerId}
+    />
+  )
 }

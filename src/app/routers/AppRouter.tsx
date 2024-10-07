@@ -10,6 +10,7 @@ import { Leagues } from '@pages/leagues'
 import { League } from '@pages/league'
 
 import { TabBar } from '@widgets/Tabbar/ui/Tabbar'
+import { Fixtures } from '@pages/fixtures'
 
 interface AppRouterPropsType {}
 
@@ -31,6 +32,7 @@ export const AppRouter = ({}: PropsWithChildren<AppRouterPropsType>) => {
           <Route path={'/settings'} element={<Settings />} />
           <Route path={'/leagues'} element={<Leagues />} />
           <Route path={'/leagues/:id'} element={<League />} />
+          <Route path={'/fixtures'} element={<Fixtures />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

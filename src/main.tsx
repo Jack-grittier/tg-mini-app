@@ -5,6 +5,13 @@ import { Root } from '@app/Root'
 
 import ReactGA from 'react-ga4'
 
+import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+
+dayjs.extend(utc)
+dayjs.extend(timezone)
+
 import './mockENV.ts'
 
 const isProduction = import.meta.env.PROD

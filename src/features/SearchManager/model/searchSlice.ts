@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { ISearchState } from './types'
 import { Entry, getManagerById } from '@shared/api/entry-manager'
+import { resetAllTeam } from '@features/team'
 
 export const searchManager = createAsyncThunk<Entry, { managerId: number }>(
   'search/searchManager',
@@ -14,9 +15,15 @@ export const searchManager = createAsyncThunk<Entry, { managerId: number }>(
   }
 )
 
+const initialState: ISearchState = {
+  loading: false,
+  manager: null,
+  error: '',
+}
+
 const searchSlice = createSlice({
   name: 'search',
-  initialState: { loading: false, manager: null, error: '' } as ISearchState,
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -29,6 +36,9 @@ const searchSlice = createSlice({
       .addCase(searchManager.fulfilled, (state, action) => {
         state.loading = false
         state.manager = action.payload
+      })
+      .addCase(resetAllTeam, () => {
+        return initialState
       })
   },
 })

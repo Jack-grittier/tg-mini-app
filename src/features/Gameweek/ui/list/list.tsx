@@ -12,10 +12,10 @@ import styles from './List.module.css'
 
 type PropsType = {
   isPrimary: boolean
+  managerId: number
 }
 
-export const List = ({ isPrimary }: PropsType) => {
-  // const activeEventIndex = useAppSelector((state) => state.gameweek.activeEvent)
+export const List = ({ isPrimary, managerId }: PropsType) => {
   const activeEventIndex = useAppSelector(
     (state) => state.common[isPrimary ? 'primary' : 'secondary'].activeEvent
   )
@@ -30,9 +30,11 @@ export const List = ({ isPrimary }: PropsType) => {
 
   useEffect(() => {
     if (activeEventIndex > -1) {
-      dispatch(getPicks({ eventId: events![activeEventIndex].id ?? -1 }))
+      dispatch(
+        getPicks({ eventId: events![activeEventIndex].id ?? -1, managerId })
+      )
     }
-  }, [activeEventIndex])
+  }, [activeEventIndex, managerId])
 
   if (!currentEvent) {
     return (

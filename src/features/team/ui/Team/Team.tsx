@@ -8,9 +8,10 @@ import styles from './Team.module.css'
 
 interface TeamPropsType {
   isPrimary: boolean
+  managerId: number
 }
 
-export const Team = ({ isPrimary }: TeamPropsType) => {
+export const Team = ({ isPrimary, managerId }: TeamPropsType) => {
   return (
     <div>
       <div className={styles['wrapper-top-box']}>
@@ -18,7 +19,7 @@ export const Team = ({ isPrimary }: TeamPropsType) => {
         <PickTotalPoints />
       </div>
       <Chip />
-      <List isPrimary={isPrimary} />
+      <List isPrimary={isPrimary} managerId={managerId} />
       <TeamField />
     </div>
   )
