@@ -1,0 +1,9 @@
+.container {
+    padding: 24px 12px;
+    background-image: url("Pitch.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}

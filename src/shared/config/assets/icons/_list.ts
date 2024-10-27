@@ -26,10 +26,12 @@ import WOL from './WolverhamptonWanderers.svg?react'
  * COMMON ICON
  */
 import arrow from './chevron_down_20.svg?react'
+import retry from './retryIcon.svg?react'
 
 export const list = {
   // COMMON ICON
   arrow,
+  retry,
   // TEAMS ICON
   ARS,
   AVL,

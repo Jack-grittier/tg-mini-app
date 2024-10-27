@@ -1,4 +1,15 @@
+
 .list {
-    padding: 0;
     list-style: none;
+}
+
+.cardDate {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 24px;
 }

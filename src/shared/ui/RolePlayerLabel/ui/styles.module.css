@@ -1,16 +1,7 @@
 .box {
-    width: 24px;
-    aspect-ratio: 1;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2F0042;
-    border: 1px solid #681A7D;
+    color: #AAAAAA;
 }
 
-.box span {
-    color: white;
-    font-size: 14px;
-    font-weight: 900;
-}

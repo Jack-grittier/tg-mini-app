@@ -1,0 +1,15 @@
+.container {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.element {
+    cursor: pointer;
+}
+
+.disabled {
+    color: #AAAAAA;
+    cursor: not-allowed;
+}

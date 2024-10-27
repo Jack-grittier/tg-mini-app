@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import styles from './Player.module.css'
-// import kit from '../../../assets/shirt_54-66.png'
-import { Modal } from '@telegram-apps/telegram-ui'
+import kit from './shirt.png'
+import { Caption, Modal, Title } from '@telegram-apps/telegram-ui'
 
 import { type TeamFieldType } from '@features/TeamField'
 import { MatchScore } from '../../MatchScore/MatchScore'
@@ -24,36 +24,50 @@ export const Player: FC<PlayerProps> = ({
   return (
     <>
       <Modal
-        header={<Modal.Header>Only iOS header</Modal.Header>}
+        header={
+          <Modal.Header>
+            <Title level={'3'} weight={'2'}>
+              {player.first_name} {player.second_name}
+            </Title>
+          </Modal.Header>
+        }
         snapPoints={[1]}
+        className={styles.modal}
         trigger={
           <button className={styles['container']}>
             <div className={styles['inner']}>
-              {is_captain && <div>C</div>}
-              {is_vice_captain && <div>V</div>}
+              {is_captain && (
+                <div className={styles.label}>
+                  <Caption level="2" weight="2">
+                    C
+                  </Caption>
+                </div>
+              )}
+              {is_vice_captain && (
+                <div className={styles.label}>
+                  <Caption level="2" weight="2">
+                    V
+                  </Caption>
+                </div>
+              )}
               <div className={styles.kit}>
-                {/*<img*/}
-                {/*  src={`https://fantasy.premierleague.com/dist/img/shirts/standard/shirt_3-66.png`}*/}
-                {/*  alt="kit-example"*/}
-                {/*/>*/}
+                <img src={kit} alt="kit" />
               </div>
-              <div className={styles['name']}>{player.web_name}</div>
-              <div className={styles['points']}>
+              <Caption level="1" weight="2" className={styles['name']}>
+                {player.web_name}
+              </Caption>
+              <Caption level="1" weight="2" className={styles['points']}>
                 {isBench ? stats.total_points : multiplier * stats.total_points}
-              </div>
-              {/*<div>{playerData?.stats?.assists ?? 'Assists'}</div>*/}
-              {/*<div>{playerData?.stats?.minutes ?? 'Minutes'}</div>*/}
-              {/*<div>{playerData?.player?.second_name ?? 'Second Name'}</div>*/}
+              </Caption>
             </div>
           </button>
         }
       >
         <div
           style={{
-            height: 'var(--tg-viewport-height)',
+            height: 'calc(var(--tg-viewport-height) / 2)',
           }}
         >
-          <div>STATS</div>
           <div>
             {stats.explain.map((ex, index) => {
               console.log('ex.fixture', ex.fixture)

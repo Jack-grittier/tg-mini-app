@@ -33,7 +33,6 @@ export const TeamField = ({}: PropsWithChildren<TeamFieldPropsType>) => {
   return (
     <div className={styles['container']}>
       <MainField data={teamGroup.main} />
-      <span>bench</span>
       <BenchField data={teamGroup.bench} />
     </div>
   )

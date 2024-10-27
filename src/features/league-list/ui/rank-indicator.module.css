@@ -1,17 +1,15 @@
 .common {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 5px;
-    height: 100%;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
 }
 
 .up {
-    background-color: #77e29d;
+    background-color: #0BBF02;
 }
 .down {
-    background-color: #fda2a3;
+    background-color: #D90303;
 }
 .dash {
-    background-color: #544e57;
+    background-color: #707070;
 }

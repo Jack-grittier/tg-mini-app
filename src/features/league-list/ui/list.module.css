@@ -1,6 +1,20 @@
 .list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    padding: 0;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 40% auto auto;
+    gap: 24px;
+    padding: 8px;
+    border-bottom: 1px solid #212121;
+}
+.headerItem {
+    color: #AAAAAA;
 }
