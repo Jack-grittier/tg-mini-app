@@ -62,7 +62,37 @@
     }
 }
 
+.identifier {
+    text-transform: capitalize;
+}
+
+.headerValue {
+    color: #AAAAAA;
+}
+
 .modal {
     background-color: #0F0F0F;
     padding: 0 24px;
+}
+
+.headerTable {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    gap: 12px;
+    padding: 8px;
+    border-bottom: 1px solid #212121;
+}
+
+.bodyTable {
+    display: grid;
+    grid-template-columns: 50% 25% 25%;
+    gap: 12px;
+    padding: 8px;
+    border-bottom: 1px solid #212121;
+    &:last-child {
+        border-bottom: 1px solid transparent;
+    }
+    &:only-child {
+        border-bottom: 1px solid transparent;
+    }
 }

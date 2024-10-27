@@ -16,7 +16,7 @@ interface PropsType {
   isStats: boolean
 }
 
-const _icon_size = 48
+const _icon_size = 42
 
 export const Item = ({
   entry,
@@ -51,8 +51,14 @@ export const Item = ({
             {entry.team_a.short_name}
           </Subheadline>
         </div>
+        {isStats && (
+          <Stats
+            teamAName={entry.team_a.name}
+            teamHName={entry.team_h.name}
+            stats={stats}
+          />
+        )}
       </li>
-      {isStats && <Stats stats={stats} />}
     </>
     // </Accordion.Summary>
     //   <Accordion.Content>

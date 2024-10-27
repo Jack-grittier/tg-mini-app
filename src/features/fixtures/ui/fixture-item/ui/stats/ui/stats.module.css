@@ -1,0 +1,60 @@
+.modal {
+    background-color: #0F0F0F;
+    header {
+        padding-bottom: 0;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.valueBox {
+    display: flex;
+    flex-direction: column;
+    &:first-child {
+        border-right: 1px solid #212121;
+    }
+}
+
+.valueRow {
+    display: flex;
+    padding: 8px;
+    border-bottom: 1px solid #212121;
+    &:last-child {
+        border-bottom: 1px solid transparent;
+    }
+    &:only-child {
+        border-bottom: 1px solid transparent;
+    }
+}
+
+.boxBtn {
+    grid-area: 2/1/3/4;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    pointer-events: initial;
+    text-decoration: underline;
+    margin-top: 8px;
+    margin-bottom: -8px;
+}
+
+.identifier {
+    border-radius: 20px;
+    padding: 8px;
+    text-transform: capitalize;
+    width: 100%;
+    text-align: center;
+}

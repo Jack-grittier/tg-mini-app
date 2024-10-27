@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import styles from './Player.module.css'
 import kit from './shirt.png'
-import { Caption, Modal, Title } from '@telegram-apps/telegram-ui'
+import { Caption, Modal, Subheadline, Title } from '@telegram-apps/telegram-ui'
 
 import { type TeamFieldType } from '@features/TeamField'
 import { MatchScore } from '../../MatchScore/MatchScore'
@@ -21,6 +21,11 @@ export const Player: FC<PlayerProps> = ({
   multiplier,
   isBench = false,
 }) => {
+  // Функция для замены нижних подчеркиваний на пробелы
+  const formatText = (text: string) => {
+    return text.replace(/_/g, ' ')
+  }
+
   return (
     <>
       <Modal
@@ -73,26 +78,49 @@ export const Player: FC<PlayerProps> = ({
               return (
                 <div key={`explain-${index}`}>
                   <MatchScore fixture={ex.fixture} />
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                    }}
-                  >
-                    <div style={{ display: 'contents' }}>
-                      <div>Statistic</div>
-                      <div>Value</div>
-                      <div>Points</div>
+                  <div>
+                    <div className={styles.headerTable}>
+                      <Subheadline
+                        className={styles.headerValue}
+                        level={'1'}
+                        weight={'2'}
+                      >
+                        Statistic
+                      </Subheadline>
+                      <Subheadline
+                        className={styles.headerValue}
+                        level={'1'}
+                        weight={'2'}
+                      >
+                        Value
+                      </Subheadline>
+                      <Subheadline
+                        className={styles.headerValue}
+                        level={'1'}
+                        weight={'2'}
+                      >
+                        Points
+                      </Subheadline>
                     </div>
                     {ex.stats.map((st) => {
                       return (
                         <div
-                          style={{ display: 'contents' }}
+                          className={styles.bodyTable}
                           key={`explain-${index}-${st.identifier}`}
                         >
-                          <div>{st.identifier}</div>
-                          <div>{st.points}</div>
-                          <div>{st.value}</div>
+                          <Caption
+                            className={styles.identifier}
+                            level="1"
+                            weight="3"
+                          >
+                            {formatText(st.identifier)}
+                          </Caption>
+                          <Caption level="1" weight="3">
+                            {st.points}
+                          </Caption>
+                          <Caption level="1" weight="3">
+                            {st.value}
+                          </Caption>
                         </div>
                       )
                     })}
