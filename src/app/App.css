@@ -1,14 +1,10 @@
 body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: var(--tg-theme-secondary-bg-color);
+  background: #0F0F0F;
+  word-break: break-word;
 }
 
 .App {
   position: relative;
-  /*60px - это высота нижнего бара, возможно придется считать динамически*/
-  padding: 16px 12px 60px 12px;
-  word-break: break-all;
+  padding: 0 0 72px 0; /*60px - это высота нижнего бара, возможно придется считать динамически*/
 }
 

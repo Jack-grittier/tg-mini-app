@@ -1,7 +1,6 @@
 .wrapper-title {
     text-align: center;
-    width: 100%;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 }
 
 .search-box {
@@ -9,12 +8,38 @@
 }
 
 .button-hint {
-    text-align: center;
+    margin-top: 8px;
+    padding: 0;
+}
+
+.imgBox {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 52px -16px 0 -16px;
+}
+.img {
+    display: block;
     width: 100%;
-    margin-top: 24px;
+    height: auto;
+    mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
 }
 
 .modal {
     padding: 16px;
     word-break: break-word;
+}
+
+.modalBg {
+    background: #0F0F0F;
+}
+
+.list {
+    padding: 0;
+    margin: 0;
+}
+
+.text {
+    font-size: 15px;
 }

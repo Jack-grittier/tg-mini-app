@@ -1,4 +1,27 @@
 .fixture-item {
+    border-bottom: 1px solid #212121;
+    padding: 16px 24px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 35% auto 35%;
+    &:only-child {
+        border-bottom: 1px solid transparent;
+    }
+    &:last-child {
+        border-bottom: 1px solid transparent;
+    }
+}
+
+.team {
     display: flex;
     align-items: center;
+    gap: 6px;
+}
+.home {
+    display: flex;
+    justify-self: flex-start;
+}
+.away {
+    display: flex;
+    justify-self: flex-end;
 }

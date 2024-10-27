@@ -1,6 +1,7 @@
 import { Timer } from './ui/timer/Timer'
 
 import styles from './styles.module.css'
+import { Card, Subheadline } from '@telegram-apps/telegram-ui'
 
 interface PropsType {
   score: {
@@ -15,10 +16,16 @@ export const Score = ({ score, time }: PropsType) => {
     return <Timer time={time} />
   }
   return (
-    <div className={styles.score}>
-      <div>{score.score_h}</div>
-      <div>:</div>
-      <div>{score.score_a}</div>
-    </div>
+    <Card className={styles.score}>
+      <Subheadline level="1" weight="2">
+        {score.score_h}
+      </Subheadline>
+      <Subheadline level="1" weight="2">
+        :
+      </Subheadline>
+      <Subheadline level="1" weight="2">
+        {score.score_a}
+      </Subheadline>
+    </Card>
   )
 }

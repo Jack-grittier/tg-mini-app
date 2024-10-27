@@ -2,6 +2,8 @@ import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '@app/store'
 import { useEffect, useState } from 'react'
 import { getNewPageStandings } from '@entities/standings'
+import styles from './standing-action.module.css'
+import { Caption } from '@telegram-apps/telegram-ui'
 
 export const StandingAction = () => {
   const { id } = useParams()
@@ -26,11 +28,25 @@ export const StandingAction = () => {
   }
 
   return (
-    <div>
-      {page > 1 && (
-        <button onClick={() => setPage((prev) => prev - 1)}>PREV page</button>
-      )}
-      <button onClick={() => setPage((prev) => prev + 1)}>NEXT page</button>
+    <div className={styles.container}>
+      <Caption
+        onClick={() => setPage((prev) => prev - 1)}
+        disabled={page <= 1}
+        level="1"
+        weight="3"
+        className={`${styles.element} ${page <= 1 ? styles.disabled : ''}`}
+      >
+        ← Previous Page
+      </Caption>
+
+      <Caption
+        className={styles.element}
+        onClick={() => setPage((prev) => prev + 1)}
+        level="1"
+        weight="3"
+      >
+        Next Page →
+      </Caption>
     </div>
   )
 }

@@ -1,25 +1,28 @@
 .item {
     display: flex;
     flex-direction: column;
-    gap: 26px;
-    border: 1px solid #681A7D;
-    border-radius: 4px;
-    padding: 6px;
+    padding: 16px;
 }
 .inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #474747;
+    padding-bottom: 8px;
 }
 
 .innerWrapper {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 4px;
 }
 
 .rankBox {
     display: flex;
+    flex-direction: row-reverse;
+    gap: 4px;
+    margin-right: 8px;
     align-items: center;
-    gap: 8px;
 }
 .name-box {
     display: flex;
@@ -40,4 +43,19 @@
 
 .event-info span {
     display: block;
+}
+
+.entry_name {
+    cursor: pointer;
+    font-size: 17px;
+    line-height: 130%;
+}
+
+.player_name {
+    color: #AAAAAA;
+    line-height: 155%;
+}
+
+.gw_tot {
+    line-height: 170%;
 }

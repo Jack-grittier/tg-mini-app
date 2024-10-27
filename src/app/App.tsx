@@ -3,7 +3,6 @@ import {
   bindMiniAppCSSVars,
   bindThemeParamsCSSVars,
   bindViewportCSSVars,
-  useLaunchParams,
   useMiniApp,
   useThemeParams,
   useViewport,
@@ -16,7 +15,6 @@ import { AppRouter } from './routers/AppRouter'
 
 export const App = () => {
   const miniApp = useMiniApp()
-  const lp = useLaunchParams()
   const themeParams = useThemeParams()
   const viewport = useViewport()
   const dispatch = useAppDispatch()
@@ -38,10 +36,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <AppRoot
-        appearance={miniApp.isDark ? 'dark' : 'light'}
-        platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
-      >
+      <AppRoot appearance={'dark'} platform={'ios'}>
         <AppRouter />
       </AppRoot>
     </div>

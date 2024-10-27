@@ -1,5 +1,30 @@
 .item {
-    display: flex;
-    justify-content: space-between;
     list-style: none;
+    display: grid;
+    grid-template-columns: 40% auto auto;
+    gap: 24px;
+    padding: 8px;
+    border-bottom: 1px solid #212121;
+    &:last-child {
+        border-bottom: 1px solid transparent;
+    }
+    a {
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+}
+
+
+
+.entry_rank {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: end;
+}
+
+.entry_last_rank {
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }

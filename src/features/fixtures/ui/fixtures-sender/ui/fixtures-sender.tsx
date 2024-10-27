@@ -1,12 +1,13 @@
 import { FixturesEventSwitch, FixturesGetterList } from '@features/fixtures'
+import { Container } from '@widgets/Container/ui/Container.tsx'
 
 interface PropsType {}
 
 export const FixturesSender = ({}: PropsType) => {
   return (
-    <div>
+    <Container>
       <FixturesEventSwitch />
       <FixturesGetterList />
-    </div>
+    </Container>
   )
 }

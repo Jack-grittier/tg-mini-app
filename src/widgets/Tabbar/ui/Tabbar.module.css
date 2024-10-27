@@ -1,0 +1,4 @@
+.container {
+    z-index: 99999;
+    background-color: rgba(23,23,23, .95);
+}

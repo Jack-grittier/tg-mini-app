@@ -83,15 +83,17 @@ export const List = ({ isPrimary, managerId }: PropsType) => {
     <div className={styles.container}>
       <div className={styles.box}>
         <ActionChangeEvent
+          className={styles.btnArrow}
           mode={Mode.left}
           onClick={() => changeIndex('decrement')}
         >
           <Icon as={'arrow'} width={20} height={20} />
         </ActionChangeEvent>
-        <Title caps level="1" weight="1">
+        <Title caps level="1" weight="2">
           {currentEvent.name}
         </Title>
         <ActionChangeEvent
+          className={styles.btnArrow}
           mode={Mode.right}
           onClick={() => changeIndex('increment')}
         >

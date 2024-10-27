@@ -1,11 +1,12 @@
 import { StandingAction } from '@features/standing-action'
 import { StandingList } from '@features/standing-list'
+import { Container } from '@widgets/Container/ui/Container.tsx'
 
 export const League = () => {
   return (
-    <div>
+    <Container>
       <StandingList />
       <StandingAction />
-    </div>
+    </Container>
   )
 }

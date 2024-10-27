@@ -1,9 +1,12 @@
-.score {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: fit-content;
-    padding: 13px 17px;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.card {
+    padding: 8px;
     border-radius: 8px;
-    justify-self: center;
 }

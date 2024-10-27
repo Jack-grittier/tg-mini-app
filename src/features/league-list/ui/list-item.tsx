@@ -5,6 +5,7 @@ import { RankIndicator } from './rank-indicator'
 
 import styles from './list-item.module.css'
 import { Link } from '@shared/ui/Link'
+import { Subheadline } from '@telegram-apps/telegram-ui'
 
 interface ListItemPropsType extends ClassicLeague {}
 
@@ -16,15 +17,23 @@ export const ListItem = ({
 }: PropsWithChildren<ListItemPropsType>) => {
   return (
     <li className={styles.item}>
-      <Link to={`/leagues/${id}`}>
-        <div>{name}</div>
+      <Link className={styles.link} to={`/leagues/${id}`}>
+        <Subheadline level={'2'} weight={'3'}>
+          {name}
+        </Subheadline>
       </Link>
-      <RankIndicator
-        entry_last_rank={entry_last_rank}
-        entry_rank={entry_rank}
-      />
-      <div>{entry_rank}</div>
-      <div>{entry_last_rank}</div>
+      <div className={styles.entry_rank}>
+        <Subheadline level={'2'} weight={'3'}>
+          {entry_rank}{' '}
+        </Subheadline>
+        <RankIndicator
+          entry_last_rank={entry_last_rank}
+          entry_rank={entry_rank}
+        />
+      </div>
+      <Subheadline level={'2'} weight={'3'} className={styles.entry_last_rank}>
+        {entry_last_rank}
+      </Subheadline>
     </li>
   )
 }

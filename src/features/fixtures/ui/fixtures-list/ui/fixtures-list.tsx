@@ -3,6 +3,7 @@ import { useAppSelector } from '@app/store'
 import { Item } from '@features/fixtures/ui/fixture-item'
 
 import styles from './styles.module.css'
+import { Card } from '@telegram-apps/telegram-ui'
 
 interface PropsType {}
 
@@ -23,7 +24,9 @@ export const FixturesList = ({}: PropsWithChildren<PropsType>) => {
       {Object.entries(groups).map(([d, entry]) => {
         return (
           <li key={`fixtures-list-${d}`}>
-            <Item.Header period={new Date(d)} />
+            <Card className={styles.cardDate}>
+              <Item.Header period={new Date(d)} />
+            </Card>
             <ul className={styles.list}>
               {entry?.map((e) => {
                 return (
