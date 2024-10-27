@@ -6,7 +6,8 @@ const teamSlice = createSlice({
   initialState: {
     currentEvent: -1,
     primary: {
-      managerId: 288593, // 794535
+      //managerId: 288593, // 794535
+      managerId: 891093, // 794535
       eventId: -1,
       activeEvent: -1,
     },
@@ -38,6 +39,9 @@ const teamSlice = createSlice({
     resetAllTeam: (state) => {
       state.secondary.managerId = -1
     },
+    onChangeManagerId: (state, action: PayloadAction<number>) => {
+      state.primary.managerId = action.payload
+    },
   },
 })
 
@@ -48,6 +52,7 @@ export const {
   setCommonActiveEvent,
   setSecondaryManagerId,
   resetAllTeam,
+  onChangeManagerId,
 } = teamSlice.actions
 
 export default reducer

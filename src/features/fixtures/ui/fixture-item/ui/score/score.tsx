@@ -16,16 +16,18 @@ export const Score = ({ score, time }: PropsType) => {
     return <Timer time={time} />
   }
   return (
-    <Card className={styles.score}>
-      <Subheadline level="1" weight="2">
-        {score.score_h}
-      </Subheadline>
-      <Subheadline level="1" weight="2">
-        :
-      </Subheadline>
-      <Subheadline level="1" weight="2">
-        {score.score_a}
-      </Subheadline>
-    </Card>
+    <>
+      <Card className={styles.score}>
+        <Subheadline level="1" weight="2">
+          {score.score_h}
+        </Subheadline>
+        <Subheadline level="1" weight="2">
+          :
+        </Subheadline>
+        <Subheadline level="1" weight="2">
+          {score.score_a}
+        </Subheadline>
+      </Card>
+    </>
   )
 }

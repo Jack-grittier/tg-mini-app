@@ -70,21 +70,33 @@ export const Player: FC<PlayerProps> = ({
         >
           <div>
             {stats.explain.map((ex, index) => {
-              console.log('ex.fixture', ex.fixture)
               return (
                 <div key={`explain-${index}`}>
                   <MatchScore fixture={ex.fixture} />
-                  {ex.stats.map((st) => {
-                    return (
-                      <div key={`explain-${index}-${st.identifier}`}>
-                        <div>{st.identifier}</div>
-                        <span>points: {st.points}</span>
-                        <span>value: {st.value}</span>
-                        <br />
-                        <br />
-                      </div>
-                    )
-                  })}
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(3, 1fr)',
+                    }}
+                  >
+                    <div style={{ display: 'contents' }}>
+                      <div>Statistic</div>
+                      <div>Value</div>
+                      <div>Points</div>
+                    </div>
+                    {ex.stats.map((st) => {
+                      return (
+                        <div
+                          style={{ display: 'contents' }}
+                          key={`explain-${index}-${st.identifier}`}
+                        >
+                          <div>{st.identifier}</div>
+                          <div>{st.points}</div>
+                          <div>{st.value}</div>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
               )
             })}

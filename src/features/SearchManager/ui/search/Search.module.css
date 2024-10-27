@@ -8,3 +8,9 @@
     gap: 12px;
     justify-content: space-between;
 }
+
+.searchBox.error {
+    & > div {
+        border: 1px solid red;
+    }
+}

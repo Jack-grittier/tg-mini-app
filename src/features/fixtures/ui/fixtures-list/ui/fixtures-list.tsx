@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 import { useAppSelector } from '@app/store'
 import { Item } from '@features/fixtures/ui/fixture-item'
 
@@ -18,7 +18,7 @@ export const FixturesList = ({}: PropsWithChildren<PropsType>) => {
     matchSchedule,
     ({ kickoff_time }) => new Date(kickoff_time).toISOString().split('T')[0]
   )
-
+  console.log('groups', groups)
   return (
     <ul className={styles.list}>
       {Object.entries(groups).map(([d, entry]) => {
@@ -34,6 +34,7 @@ export const FixturesList = ({}: PropsWithChildren<PropsType>) => {
                     key={`fixtures-list-${d}-item-${e.code}`}
                     entry={e}
                     stats={e.stats}
+                    isStats={e.team_a_score !== null && e.team_h_score !== null}
                   >
                     <Item.Score
                       score={{

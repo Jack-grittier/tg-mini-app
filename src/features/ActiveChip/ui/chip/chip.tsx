@@ -11,7 +11,7 @@ export const Chip = ({}: PropsType) => {
   }
   return (
     <Text weight={'3'}>
-      {CHIPS_LIST[activeChip]}Bench Boost:{' '}
+      {CHIPS_LIST[activeChip]}:{' '}
       <Text style={{ color: '#32E55E' }} weight={'3'}>
         Active
       </Text>

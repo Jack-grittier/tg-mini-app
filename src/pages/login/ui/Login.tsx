@@ -11,7 +11,7 @@ interface LoginPropsType {}
 
 export const Login = ({}: PropsWithChildren<LoginPropsType>) => {
   const isLoading = useAppSelector((state) => state.bootstrapStatic.loading)
-  // @ts-ignore
+
   return (
     <Container>
       <main>
