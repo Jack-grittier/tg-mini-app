@@ -11,6 +11,7 @@ import { teamReducer } from '@features/TeamField'
 import { chipReducer } from '@features/ActiveChip'
 import { commonReducer } from '@features/team'
 import { fixturesReducer } from '@features/fixtures'
+import { cloudReducer } from '@entities/cloud'
 
 const rootReducer = combineReducers({
   search: searchReducer,
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   standingsData: standingsDataReducer,
   common: commonReducer,
   fixtures: fixturesReducer,
+  cloud: cloudReducer,
 })
 
 export const store = configureStore({

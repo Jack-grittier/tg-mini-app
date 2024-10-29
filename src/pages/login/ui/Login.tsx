@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { Button, Modal, Spinner, Title, Text } from '@telegram-apps/telegram-ui'
+import { Button, Modal, Spinner, Text, Title } from '@telegram-apps/telegram-ui'
 
 import styles from './Login.module.css'
 import { Search } from '@features/SearchManager'

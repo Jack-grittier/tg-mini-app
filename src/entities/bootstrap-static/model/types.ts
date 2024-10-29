@@ -7,4 +7,5 @@ export interface IStaticState {
   readonly loading: boolean
   /** Error message. */
   readonly error: Nullable<any>
+  readonly status: 'ожидание' | 'загружается' | 'загружен' | 'ошибка загрузки'
 }

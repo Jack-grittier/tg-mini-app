@@ -12,12 +12,17 @@ import { useEffect } from 'react'
 import { useAppDispatch } from '@app/store'
 import { getBootstrapStaticData } from '@entities/bootstrap-static'
 import { AppRouter } from './routers/AppRouter'
+import { initializeCloudStorage } from '@entities/cloud'
 
 export const App = () => {
   const miniApp = useMiniApp()
   const themeParams = useThemeParams()
   const viewport = useViewport()
   const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    dispatch(initializeCloudStorage())
+  }, [dispatch])
 
   useEffect(() => {
     return bindMiniAppCSSVars(miniApp, themeParams)

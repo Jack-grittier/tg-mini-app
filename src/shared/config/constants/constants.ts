@@ -6,3 +6,7 @@ export enum CHIPS_LIST {
 }
 
 export type ChipListType = keyof typeof CHIPS_LIST
+
+export enum CLOUD_KEY {
+  manager = 'manager-id',
+}
