@@ -11,10 +11,8 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "predeploy": "npm run build",
-    "test": "vitest --watch=false",
-    "prepare": "husky"
+    "test": "vitest --watch=false"
   },
-
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
     "@telegram-apps/react-router-integration": "^1.0.1",
@@ -64,8 +62,5 @@
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^5.0.1",
     "vitest": "^2.1.1"
-  },
-  "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "4.9.5"
   }
 }
