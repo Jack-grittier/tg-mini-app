@@ -1,4 +1,4 @@
-import { PropsWithChildren, useState } from 'react'
+import { ChangeEvent, PropsWithChildren, useState } from 'react'
 import { Button, Input } from '@telegram-apps/telegram-ui'
 
 import styles from './Search.module.css'
@@ -26,10 +26,10 @@ export const Search = ({ buttonText }: PropsWithChildren<SearchPropsType>) => {
     navigate('/main')
   }
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.currentTarget.value
     if (/^\d*$/.test(value)) {
-      dispatch(onChangeManagerId(value)) // Обновление через dispatch вместо локального state
+      dispatch(onChangeManagerId(+value)) // Обновление через dispatch вместо локального state
       setError(false)
     } else {
       setError(true)
