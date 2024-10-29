@@ -24,7 +24,7 @@ export const Login = ({}: PropsWithChildren<LoginPropsType>) => {
           <Spinner size="s" />
         ) : (
           <>
-            <Search />
+            <Search buttonText={'Search'} />
             <Modal
               header={<Modal.Header>How do I find my team ID?</Modal.Header>}
               className={styles.modalBg}
@@ -40,20 +40,28 @@ export const Login = ({}: PropsWithChildren<LoginPropsType>) => {
             >
               <div className={styles['modal']}>
                 <ul className={styles.list}>
-                  <Text weight="2" className={styles.text}>
-                    To find the ID of your team, follow the steps below: <br />
-                    Open the web version of the Fantasy app and go to the Points
-                    page.
+                  <Text weight="3" className={styles.text}>
+                    To find your team ID, follow these steps:
                     <br />
                     <br />
-                    You will see a link of this type in the browser url:{' '}
-                    <a href="https://fantasy.premierleague.com/entry/288593/event/7">
-                      https://fantasy.premierleague.com/entry/288593/event/7
-                    </a>
+                    1. Open the web version of the Fantasy app and go to the
+                    &#34;Points&#34; page.
                     <br />
                     <br />
-                    Where the numeric value between entry/ and /event will be
-                    your ID. This value can be changed in the Settings tab.
+                    2.In the browser&#39;s address bar, you will see a link like
+                    this:&nbsp;
+                    <span style={{ fontWeight: 500 }}>
+                      https://fantasy.premierleague.com/entry/3094856/event/7
+                    </span>
+                    <br />
+                    <br />
+                    3. The number between entry/ and /event is your team ID. In
+                    this example, the team ID is{' '}
+                    <span style={{ fontWeight: 500 }}>3094856</span>.
+                    <br />
+                    <br />
+                    4. You can also change this value in the &#34;Settings&#34;
+                    tab.
                   </Text>
                 </ul>
               </div>

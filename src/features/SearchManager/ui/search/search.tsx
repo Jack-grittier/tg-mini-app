@@ -7,9 +7,11 @@ import { searchManager } from '@features/SearchManager'
 import { useNavigate } from 'react-router-dom'
 import { onChangeManagerId } from '@features/team/model/team.slice'
 
-interface SearchPropsType {}
+interface SearchPropsType {
+  buttonText: string
+}
 
-export const Search = ({}: PropsWithChildren<SearchPropsType>) => {
+export const Search = ({ buttonText }: PropsWithChildren<SearchPropsType>) => {
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const managerId = useAppSelector((state) => state.common.primary.managerId)
@@ -24,23 +26,29 @@ export const Search = ({}: PropsWithChildren<SearchPropsType>) => {
     navigate('/main')
   }
 
+  const handleInputChange = (e) => {
+    const value = e.currentTarget.value
+    if (/^\d*$/.test(value)) {
+      dispatch(onChangeManagerId(value)) // Обновление через dispatch вместо локального state
+      setError(false)
+    } else {
+      setError(true)
+    }
+  }
+
   return (
     <div className={styles.searchContainer}>
-      <div className={`${styles.searchBox} ${error ? styles.error : ''}`}>
+      <div className={styles.searchBox}>
         <Input
           header="Input"
           placeholder={'Enter your team ID'}
           value={managerId}
           type={'text'}
-          onChange={(e) => {
-            if (/^\d*$/.test(e.currentTarget.value)) {
-              dispatch(onChangeManagerId(+e.currentTarget.value))
-            }
-            setError(false)
-          }}
+          status={error ? 'error' : 'default'}
+          onChange={handleInputChange}
         />
         <Button mode={'filled'} size={'l'} onClick={searchAction}>
-          Search
+          {buttonText}
         </Button>
       </div>
     </div>
