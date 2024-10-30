@@ -25,14 +25,14 @@ const teamSlice = createSliceWithThunks({
     getPicks: create.asyncThunk<any, { eventId: number; managerId: number }>(
       async (
         { eventId, managerId },
-        { rejectWithValue, getState, dispatch }
+        { rejectWithValue, getState, dispatch, signal }
       ) => {
         const globalState = getState() as unknown as RootState
         const fullPlayer = globalState.bootstrapStatic.static?.elements ?? []
         try {
-          const respPick = await getCurrentPicks(managerId, eventId)
-          const respLife = await getLive(eventId)
-          const respFixtures = await getFixturesEvent(eventId)
+          const respPick = await getCurrentPicks(managerId, eventId, { signal })
+          const respLife = await getLive(eventId, { signal })
+          const respFixtures = await getFixturesEvent(eventId, { signal })
 
           dispatch(initTotalPoints(respPick.data.entry_history.points))
           dispatch(setActiveChip(respPick.data.active_chip))
@@ -80,8 +80,15 @@ const teamSlice = createSliceWithThunks({
         }
       },
       {
+        pending: (state) => {
+          state.loading = true
+        },
         fulfilled: (state, action: PayloadAction<TeamField[]>) => {
           state.data = action.payload
+          state.loading = false
+        },
+        rejected: (state) => {
+          state.loading = false
         },
       }
     ),

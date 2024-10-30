@@ -1,8 +1,8 @@
 import { useAppSelector } from '@app/store'
 
-import { IconButton, Title } from '@telegram-apps/telegram-ui'
-import { Icon } from '@shared/ui/Icon'
+import { Title } from '@telegram-apps/telegram-ui'
 import styles from './PickTotalPoints.module.css'
+import { RefreshTeam } from '@features/RefreshTeam'
 
 export const PickTotalPoints = () => {
   const teamInfo = useAppSelector((state) => state.team.data) ?? []
@@ -23,9 +23,7 @@ export const PickTotalPoints = () => {
       <Title weight={'2'} level={'1'}>
         Points: {total__}
       </Title>
-      <IconButton mode="plain" size="l">
-        <Icon as={'retry'} width={28} height={28} />
-      </IconButton>
+      <RefreshTeam />
     </div>
   )
 }

@@ -21,6 +21,11 @@ export const List = ({ isPrimary, managerId }: PropsType) => {
   )
   const events = useAppSelector((state) => state.bootstrapStatic.static?.events)
 
+  const nextIndexEvent = useMemo(
+    () => events?.findIndex((e) => e.is_next) ?? -1,
+    [events]
+  )
+
   const dispatch = useAppDispatch()
 
   const currentEvent = useMemo(
@@ -96,6 +101,7 @@ export const List = ({ isPrimary, managerId }: PropsType) => {
           className={styles.btnArrow}
           mode={Mode.right}
           onClick={() => changeIndex('increment')}
+          disabled={activeEventIndex + 1 === nextIndexEvent}
         >
           <Icon as={'arrow'} width={20} height={20} />
         </ActionChangeEvent>
