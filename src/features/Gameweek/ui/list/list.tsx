@@ -91,6 +91,7 @@ export const List = ({ isPrimary, managerId }: PropsType) => {
           className={styles.btnArrow}
           mode={Mode.left}
           onClick={() => changeIndex('decrement')}
+          disabled={activeEventIndex === 0}
         >
           <Icon as={'arrow'} width={20} height={20} />
         </ActionChangeEvent>
